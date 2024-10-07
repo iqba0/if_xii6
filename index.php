@@ -1,3 +1,6 @@
+<?php
+echo "ini php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
