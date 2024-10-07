@@ -1,7 +1,3 @@
-<?php
-$ini = 'hai';
-echo "$ini php";
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,10 +6,9 @@ echo "$ini php";
     <title>Document</title>
     <style>
 
-        .form-input .button{
-            background-color: bisque;
-        }
-
+       body {
+        background-color: pink;
+       }
     </style>
 </head>
 <body>
