@@ -1,5 +1,6 @@
 <?php
-echo "ini php";
+$ini = 'hai';
+echo "$ini php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
