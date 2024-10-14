@@ -3,20 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pencarian dalam Halaman HTML</title>
     <style>
-
-       body {
-        background-color: pink;
-        color: aliceblue;
-       }
+        .highlight {
+            background-color: yellow;
+        }
     </style>
 </head>
 <body>
-    <marquee>
-    Halo Yusuf, Andre dan Kelvin
-</marquee>
+    <h1>Pencarian dalam Halaman</h1>
 
-<script src="script.js"></script>
+
+    <label for="searchInput">Cari teks: </label>
+    <input type="text" id="searchInput" placeholder="Masukkan teks yang ingin dicari"><br><br>
+
+    <button onclick="searchText()">Cari</button>
+
+    <h3 id="result"></h3>
+
+    <p id="content">
+        Ini adalah sebuah paragraf contoh. Kamu bisa mencari kata tertentu dalam paragraf ini.
+        Misalnya, cobalah mencari kata "contoh" atau "kata" untuk melihat bagaimana hasilnya.
+        Pencarian ini hanya berlaku pada teks dalam elemen halaman HTML ini.
+    </p>
+
+    <script>
+        function searchText() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const content = document.getElementById('content').innerText.toLowerCase();
+            const resultElement = document.getElementById('result');
+            const contentElement = document.getElementById('content');
+
+            // Menghapus highlight sebelumnya
+            contentElement.innerHTML = contentElement.innerText;
+
+            // Memeriksa apakah teks yang dicari ada di dalam konten
+            if (content.includes(searchInput)) {
+                resultElement.innerText = `Teks "${searchInput}" ditemukan.`;
+
+                // Highlight teks yang ditemukan
+                const regExp = new RegExp(searchInput, 'gi');
+                const highlightedContent = contentElement.innerHTML.replace(regExp, match => `<span class="highlight">${match}</span>`);
+                contentElement.innerHTML = highlightedContent;
+            } else {
+                resultElement.innerText = `Teks "${searchInput}" tidak ditemukan.`;
+            }
+        }
+    </script>
 </body>
 </html>
